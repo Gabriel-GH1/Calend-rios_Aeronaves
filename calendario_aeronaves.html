@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário de Manutenção de Aeronaves</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Calendário de Manutenção de Aeronaves</h1>
+            <p>Controle de Entrada e Saída das Aeronaves</p>
+        </header>
+        
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab('pp-fcf')">PP-FCF</button>
+            <button class="tab-button" onclick="openTab('pr-msz')">PR-MSZ</button>
+            <button class="tab-button" onclick="openTab('pp-emo')">PP-EMO</button>
+            <button class="tab-button" onclick="openTab('ps-ece')">PS-ECE</button>
+        </div>
+        
+        <div id="pp-fcf" class="tab-content active">
+            <h2 class="year-title">PP-FCF - Calendário 2025</h2>
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="color-box maintenance-color"></div>
+                    <span>Período de Manutenção</span>
+                </div>
+            </div>
+            <div class="calendar-container">
+                <div class="months-grid" id="pp-fcf-calendar">
+                    <!-- JavaScript vai preencher isso -->
+                </div>
+            </div>
+        </div>
+        
+        <div id="pr-msz" class="tab-content">
+            <h2 class="year-title">PR-MSZ - Calendário 2025</h2>
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="color-box maintenance-color"></div>
+                    <span>Período de Manutenção</span>
+                </div>
+            </div>
+            <div class="calendar-container">
+                <div class="months-grid" id="pr-msz-calendar">
+                    <!-- JavaScript vai preencher isso-->
+                </div>
+            </div>
+        </div>
+        
+        <div id="pp-emo" class="tab-content">
+            <h2 class="year-title">PP-EMO - Calendário 2025</h2>
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="color-box maintenance-color"></div>
+                    <span>Período de Manutenção</span>
+                </div>
+            </div>
+            <div class="calendar-container">
+                <div class="months-grid" id="pp-emo-calendar">
+                    <!-- JavaScript vai preencher isso -->
+                </div>
+            </div>
+        </div>
+        
+        <div id="ps-ece" class="tab-content">
+            <h2 class="year-title">PS-ECE - Calendário 2025</h2>
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="color-box maintenance-color"></div>
+                    <span>Período de Manutenção</span>
+                </div>
+            </div>
+            <div class="calendar-container">
+                <div class="months-grid" id="ps-ece-calendar">
+                    <!-- JavaScript vai preencher isso -->
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Desenvolvido para o Controle de Manutenção de Aeronaves | Atualizado em: <span id="current-date"></span></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
