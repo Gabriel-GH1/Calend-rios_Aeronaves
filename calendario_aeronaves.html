@@ -14,18 +14,35 @@
         </header>
         
         <div class="tabs">
-            <button class="tab-button active" onclick="openTab('pp-fcf')">PP-FCF</button>
-            <button class="tab-button" onclick="openTab('pr-msz')">PR-MSZ</button>
-            <button class="tab-button" onclick="openTab('pp-emo')">PP-EMO</button>
-            <button class="tab-button" onclick="openTab('ps-ece')">PS-ECE</button>
+            <button class="tab-button active" onclick="openTab('pp-fcf')" data-aircraft="pp-fcf">
+                PP-FCF
+                <div class="tab-tooltip">Clique para ver detalhes</div>
+            </button>
+            <button class="tab-button" onclick="openTab('pr-msz')" data-aircraft="pr-msz">
+                PR-MSZ
+                <div class="tab-tooltip">Clique para ver detalhes</div>
+            </button>
+            <button class="tab-button" onclick="openTab('pp-emo')" data-aircraft="pp-emo">
+                PP-EMO
+                <div class="tab-tooltip">Clique para ver detalhes</div>
+            </button>
+            <button class="tab-button" onclick="openTab('ps-ece')" data-aircraft="ps-ece">
+                PS-ECE
+                <div class="tab-tooltip">Clique para ver detalhes</div>
+            </button>
         </div>
         
         <div id="pp-fcf" class="tab-content active">
             <h2 class="year-title">PP-FCF - Calendário 2025</h2>
+            <p class="aircraft-info" id="pp-fcf-info">Passe o mouse sobre os dias para mais informações</p>
             <div class="legend">
                 <div class="legend-item">
                     <div class="color-box maintenance-color"></div>
                     <span>Período de Manutenção</span>
+                </div>
+                <div class="legend-item">
+                    <div class="color-box today-color"></div>
+                    <span></span>
                 </div>
             </div>
             <div class="calendar-container">
@@ -37,10 +54,15 @@
         
         <div id="pr-msz" class="tab-content">
             <h2 class="year-title">PR-MSZ - Calendário 2025</h2>
+            <p class="aircraft-info" id="pr-msz-info">Passe o mouse sobre os dias para mais informações</p>
             <div class="legend">
                 <div class="legend-item">
                     <div class="color-box maintenance-color"></div>
                     <span>Período de Manutenção</span>
+                </div>
+                <div class="legend-item">
+                    <div class="color-box today-color"></div>
+                    <span></span>
                 </div>
             </div>
             <div class="calendar-container">
@@ -52,10 +74,15 @@
         
         <div id="pp-emo" class="tab-content">
             <h2 class="year-title">PP-EMO - Calendário 2025</h2>
+            <p class="aircraft-info" id="pp-emo-info">Passe o mouse sobre os dias para mais informações</p>
             <div class="legend">
                 <div class="legend-item">
                     <div class="color-box maintenance-color"></div>
                     <span>Período de Manutenção</span>
+                </div>
+                <div class="legend-item">
+                    <div class="color-box today-color"></div>
+                    <span></span>
                 </div>
             </div>
             <div class="calendar-container">
@@ -67,10 +94,15 @@
         
         <div id="ps-ece" class="tab-content">
             <h2 class="year-title">PS-ECE - Calendário 2025</h2>
+            <p class="aircraft-info" id="ps-ece-info">Passe o mouse sobre os dias para mais informações</p>
             <div class="legend">
                 <div class="legend-item">
                     <div class="color-box maintenance-color"></div>
                     <span>Período de Manutenção</span>
+                </div>
+                <div class="legend-item">
+                    <div class="color-box today-color"></div>
+                    <span></span>
                 </div>
             </div>
             <div class="calendar-container">

@@ -38,6 +38,7 @@ h1 {
 }
 
 .tab-button {
+    position: relative;
     padding: 12px 20px;
     background: #e0e0e0;
     border: none;
@@ -75,6 +76,13 @@ h1 {
     color: #005288;
 }
 
+.aircraft-info {
+    text-align: center;
+    margin-bottom: 15px;
+    font-style: italic;
+    color: #666;
+}
+
 .months-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -98,6 +106,12 @@ h1 {
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 10px;
+    transition: transform 0.2s;
+}
+
+.month:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .month-name {
@@ -105,7 +119,7 @@ h1 {
     font-weight: bold;
     margin-bottom: 10px;
     padding-bottom: 5px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #eeeeee;
     color: #005288;
 }
 
@@ -129,6 +143,8 @@ h1 {
     padding: 5px;
     font-size: 12px;
     border-radius: 3px;
+    transition: background-color 0.2s;
+    position: relative;
 }
 
 .day.empty {
@@ -141,6 +157,41 @@ h1 {
     font-weight: bold;
 }
 
+.day.today {
+    border: 2px solid #005288;
+}
+
+.day:hover {
+    background-color: #e0e0e0;
+    cursor: pointer;
+}
+
+.day.maintenance:hover {
+    background-color: #ffd54f;
+}
+
+.day-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+}
+
+.day:hover .day-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
 .legend {
     display: flex;
     justify-content: center;
@@ -148,12 +199,13 @@ h1 {
     padding: 10px;
     background: #f9f9f9;
     border-radius: 5px;
+    flex-wrap: wrap;
 }
 
 .legend-item {
     display: flex;
     align-items: center;
-    margin: 0 15px;
+    margin: 5px 15px;
 }
 
 .color-box {
@@ -167,10 +219,39 @@ h1 {
     background-color: #ffeb3b;
 }
 
+.today-color {
+    background-color: #ffffff;
+    border: 2px solid #005288;
+}
+
 footer {
     text-align: center;
     padding: 20px;
     margin-top: 20px;
     color: #666;
     font-size: 14px;
+}
+
+/* Tooltip para as abas */
+.tab-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.tab-button:hover .tab-tooltip {
+    opacity: 1;
+    visibility: visible;
 }
