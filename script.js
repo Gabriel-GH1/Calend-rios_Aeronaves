@@ -1,3 +1,44 @@
+// Dados dos períodos de manutenção de cada aeronave
+const aircraftData = {
+    'pp-fcf': {
+        prefix: 'PP-FCF',
+        entrada: new Date('2025-07-21'),
+        saida: new Date('2025-09-17'), // ATUALIZADO: de 13/09 para 17/09
+        info: "Manutenção programada para revisão geral - Concluída com atraso"
+    },
+    'pr-msz': {
+        prefix: 'PR-MSZ',
+        entrada: new Date('2025-08-08'),
+        saida: new Date('2025-08-30'),
+        info: "Manutenção de sistemas hidráulicos"
+    },
+    'pp-emo': {
+        prefix: 'PP-EMO',
+        entrada: new Date('2025-08-15'),
+        saida: new Date('2025-08-30'),
+        info: "Substituição de componentes da asa direita"
+    },
+    'ps-ece': {
+        prefix: 'PS-ECE',
+        entrada: new Date('2025-08-15'),
+        saida: new Date('2025-08-28'),
+        info: "Atualização de sistemas de navegação"
+    },
+     'pr-rex': {
+        prefix: 'PR-REX',
+        entrada: new Date('2025-04-10'),  // Defina a data de entrada precisa colocar 1 dia a mais também
+        saida: new Date('2025-08-15'),    // Defina a data de saída, colocar 1 dia a mais no código para mostrar certo na página
+        info: "Manutenção programada para revisão de motores"
+    },
+    'pr-arb': {
+        prefix: 'PR-ARB',
+        entrada: new Date('2025-02-08'),  // Defina a data de entrada
+        saida: new Date('2025-09-20'),    // Defina a data de saída, colocar 1 dia a mais no código para mostrar certo na página
+        info: "Substituição de sistema de combustível"
+    }
+};
+
+
 // Função para alternar entre abas
 function openTab(tabId) {
     // Ocultar todo o conteúdo da guia
@@ -22,34 +63,6 @@ function openTab(tabId) {
 
 // Definir data atual no footer
 document.getElementById('current-date').textContent = new Date().toLocaleDateString('pt-BR');
-
-// Dados dos períodos de manutenção de cada aeronave
-const aircraftData = {
-    'pp-fcf': {
-        prefix: 'PP-FCF',
-        entrada: new Date('2025-07-21'),
-        saida: new Date('2025-09-13'),
-        info: "Manutenção programada para revisão geral"
-    },
-    'pr-msz': {
-        prefix: 'PR-MSZ',
-        entrada: new Date('2025-08-08'),
-        saida: new Date('2025-08-30'),
-        info: "Manutenção de sistemas hidráulicos"
-    },
-    'pp-emo': {
-        prefix: 'PP-EMO',
-        entrada: new Date('2025-08-15'),
-        saida: new Date('2025-08-30'),
-        info: "Substituição de componentes da asa direita"
-    },
-    'ps-ece': {
-        prefix: 'PS-ECE',
-        entrada: new Date('2025-08-15'),
-        saida: new Date('2025-08-28'),
-        info: "Atualização de sistemas de navegação"
-    }
-};
 
 // Atualizar informações da aeronave
 function updateAircraftInfo(aircraftId) {
@@ -114,6 +127,10 @@ function generateCalendar(aircraftId, data) {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     
+    // Defina a data original de saída planejada (12/09) - APENAS PARA PP-FCF
+    const saidaPlanejada = aircraftId === 'pp-fcf' ? new Date('2025-09-12') : null;
+    
+    
     for (let month = 0; month < 12; month++) {
         const monthElement = document.createElement('div');
         monthElement.className = 'month';
@@ -154,17 +171,26 @@ function generateCalendar(aircraftId, data) {
             const currentDate = new Date(year, month, day);
             const dayOfWeek = currentDate.getDay(); // 0 = Domingo, 6 = Sábado
             
-           
-            
             // Verifique se este dia está dentro do período de manutenção E é um dia útil
             if (currentDate >= data.entrada && currentDate <= data.saida && dayOfWeek !== 0 && dayOfWeek !== 6) {
                 dayElement.classList.add('maintenance');
                 
-                // Adicionar tooltip para dias de manutenção
-                const tooltip = document.createElement('div');
-                tooltip.className = 'day-tooltip';
-                tooltip.textContent = `${data.prefix} em manutenção`;
-                dayElement.appendChild(tooltip);
+                // VERIFICAÇÃO ESPECIAL PARA PP-FCF: Dias de atraso
+                if (aircraftId === 'pp-fcf' && saidaPlanejada && currentDate > saidaPlanejada) {
+                    dayElement.classList.add('delay');
+                    
+                    // Atualiza o tooltip para mostrar que é atraso
+                    const tooltip = document.createElement('div');
+                    tooltip.className = 'day-tooltip';
+                    tooltip.textContent = `${data.prefix} - Conclusão com atraso`;
+                    dayElement.appendChild(tooltip);
+                } else {
+                    // Tooltip normal para outros dias
+                    const tooltip = document.createElement('div');
+                    tooltip.className = 'day-tooltip';
+                    tooltip.textContent = `${data.prefix} em manutenção`;
+                    dayElement.appendChild(tooltip);
+                }
             }
             
             daysContainer.appendChild(dayElement);
@@ -178,11 +204,15 @@ function generateCalendar(aircraftId, data) {
     if (document.getElementById(aircraftId).classList.contains('active')) {
         updateAircraftInfo(aircraftId);
     }
-}// Função para retornar os dias úteis fixos que você quer
+}
+
+// Função para retornar os dias úteis fixos que você quer
 function getDiasUteisFixos(aircraftId) {
-    if (aircraftId === 'pp-fcf') return 40;
+    if (aircraftId === 'pp-fcf') return 42;  // Alterado para 42
     if (aircraftId === 'pr-msz') return 16;  // Alterado para 16
     if (aircraftId === 'pp-emo') return 11;  // Alterado para 11
     if (aircraftId === 'ps-ece') return 9;   // Alterado para 9
+     if (aircraftId === 'pr-rex') return 88;  // Defina os dias úteis para PR-REX
+    if (aircraftId === 'pr-arb') return 154;  // Defina os dias úteis para PR-ARB
     return 0;
 }

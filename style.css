@@ -255,3 +255,13 @@ footer {
     opacity: 1;
     visibility: visible;
 }
+/* NOVO CÓDIGO PARA DIAS DE ATRASO - */
+.day.delay {
+    background-color: #ff8a80; /* Vermelho claro */
+    font-weight: bold;
+}
+
+.day.delay:hover {
+    background-color: #ff5252; /* Vermelho mais escuro no hover */
+}
+/* FIM DO NOVO CÓDIGO CSS */
