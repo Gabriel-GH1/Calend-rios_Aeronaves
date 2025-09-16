@@ -154,10 +154,7 @@ function generateCalendar(aircraftId, data) {
             const currentDate = new Date(year, month, day);
             const dayOfWeek = currentDate.getDay(); // 0 = Domingo, 6 = Sábado
             
-            // Verificar se é hoje
-            if (currentDate.getTime() === today.getTime()) {
-                dayElement.classList.add('today');
-            }
+           
             
             // Verifique se este dia está dentro do período de manutenção E é um dia útil
             if (currentDate >= data.entrada && currentDate <= data.saida && dayOfWeek !== 0 && dayOfWeek !== 6) {
