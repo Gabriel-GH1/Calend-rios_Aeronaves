@@ -1,27 +1,41 @@
+<!-- Declaração do tipo de documento como HTML5 -->
 <!DOCTYPE html>
+<!-- Elemento raiz do documento com definição de idioma português do Brasil -->
 <html lang="pt-BR">
   <head>
+    <!-- Define a codificação de caracteres como UTF-8 (suporta acentos e caracteres especiais) -->
     <meta charset="UTF-8" />
+    <!-- Tag de viewport para tornar o site responsivo em dispositivos móveis -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Título da página que aparece na aba do navegador -->
     <title>Calendário de Manutenção de Aeronaves</title>
+    <!-- Link para o arquivo de estilos CSS -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- Container principal que envolve todo o conteúdo -->
     <div class="container">
+      <!-- Cabeçalho da página -->
       <header>
+        <!-- Título principal -->
         <h1>Calendário de Manutenção de Aeronaves</h1>
+        <!-- Subtítulo/descrição -->
         <p>Controle de Entrada e Saída das Aeronaves</p>
       </header>
 
+      <!-- Container das abas de seleção de aeronaves -->
       <div class="tabs">
+        <!-- Botão da primeira aba (ativa por padrão) -->
         <button
           class="tab-button active"
           onclick="openTab('pp-fcf')"
           data-aircraft="pp-fcf"
         >
           PP-FCF
+          <!-- Tooltip que aparece ao passar o mouse -->
           <div class="tab-tooltip">Clique para ver detalhes</div>
         </button>
+        <!-- Botões das demais abas (estrutura similar) -->
         <button
           class="tab-button"
           onclick="openTab('pr-msz')"
@@ -46,7 +60,7 @@
           PS-ECE
           <div class="tab-tooltip">Clique para ver detalhes</div>
         </button>
-        <!-- Nova aba PR-REX -->
+        <!-- Nova aba PR-REX (adicionada posteriormente) -->
         <button
           class="tab-button"
           onclick="openTab('pr-rex')"
@@ -55,7 +69,7 @@
           PR-REX
           <div class="tab-tooltip">Clique para ver detalhes</div>
         </button>
-        <!-- Nova aba PR-ARB -->
+        <!-- Nova aba PR-ARB (adicionada posteriormente) -->
         <button
           class="tab-button"
           onclick="openTab('pr-arb')"
@@ -66,11 +80,15 @@
         </button>
       </div>
 
+      <!-- Conteúdo da primeira aba (ativa por padrão) -->
       <div id="pp-fcf" class="tab-content active">
+        <!-- Título do ano e aeronave -->
         <h2 class="year-title">PP-FCF - Calendário 2025</h2>
+        <!-- Informações sobre a aeronave (será preenchida via JavaScript) -->
         <p class="aircraft-info" id="pp-fcf-info">
           Passe o mouse sobre os dias para mais informações
         </p>
+        <!-- Legenda das cores utilizadas no calendário -->
         <div class="legend">
           <div class="legend-item">
             <div class="color-box maintenance-color"></div>
@@ -80,13 +98,16 @@
             <span></span>
           </div>
         </div>
+        <!-- Container do calendário -->
         <div class="calendar-container">
+          <!-- Local onde o calendário será renderizado via JavaScript -->
           <div class="months-grid" id="pp-fcf-calendar">
             <!-- JavaScript vai preencher isso -->
           </div>
         </div>
       </div>
 
+      <!-- Estrutura similar para as demais abas -->
       <div id="pr-msz" class="tab-content">
         <h2 class="year-title">PR-MSZ - Calendário 2025</h2>
         <p class="aircraft-info" id="pr-msz-info">
@@ -150,7 +171,7 @@
         </div>
       </div>
 
-      <!-- Conteúdo da aba PR-REX -->
+      <!-- Conteúdo da aba PR-REX (adicionada posteriormente) -->
       <div id="pr-rex" class="tab-content">
         <h2 class="year-title">PR-REX - Calendário 2025</h2>
         <p class="aircraft-info" id="pr-rex-info">
@@ -172,7 +193,7 @@
         </div>
       </div>
 
-      <!-- Conteúdo da aba PR-ARB -->
+      <!-- Conteúdo da aba PR-ARB (adicionada posteriormente) -->
       <div id="pr-arb" class="tab-content">
         <h2 class="year-title">PR-ARB - Calendário 2025</h2>
         <p class="aircraft-info" id="pr-arb-info">
@@ -194,6 +215,7 @@
         </div>
       </div>
 
+      <!-- Rodapé da página -->
       <footer>
         <p>
           Desenvolvido para o Controle de Manutenção de Aeronaves | Atualizado
@@ -202,6 +224,7 @@
       </footer>
     </div>
 
+    <!-- Inclusão do arquivo JavaScript -->
     <script src="script.js"></script>
   </body>
 </html>

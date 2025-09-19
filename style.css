@@ -1,266 +1,305 @@
+/* Reset básico para remover margens e paddings padrão e usar border-box */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box; /* Inclui padding e border na largura/altura */
+    margin: 0; /* Remove margens padrão */
+    padding: 0; /* Remove paddings padrão */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define fonte padrão */
 }
 
+/* Estilos para o corpo da página */
 body {
-    background-color: #f5f5f5;
-    padding: 20px;
-    color: #333;
+    background-color: #f5f5f5; /* Cor de fundo cinza claro */
+    padding: 20px; /* Espaçamento interno */
+    color: #333; /* Cor do texto */
 }
 
+/* Container principal que centraliza o conteúdo */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+    max-width: 1200px; /* Largura máxima */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    background: white; /* Fundo branco */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    overflow: hidden; /* Esconde conteúdo que ultrapassa as bordas */
 }
 
+/* Estilos para o cabeçalho */
 header {
-    background: #005288;
-    color: white;
-    padding: 20px;
-    text-align: center;
+    background: #005288; /* Azul escuro */
+    color: white; /* Texto branco */
+    padding: 20px; /* Espaçamento interno */
+    text-align: center; /* Centraliza texto */
 }
 
+/* Estilo para o título principal */
 h1 {
-    margin-bottom: 10px;
+    margin-bottom: 10px; /* Espaçamento abaixo */
 }
 
+/* Container das abas */
 .tabs {
-    display: flex;
-    background: #e0e0e0;
-    border-bottom: 1px solid #ccc;
+    display: flex; /* Layout flexível para alinhar as abas horizontalmente */
+    background: #e0e0e0; /* Cor de fundo cinza */
+    border-bottom: 1px solid #ccc; /* Borda inferior */
 }
 
+/* Estilo para os botões das abas */
 .tab-button {
-    position: relative;
-    padding: 12px 20px;
-    background: #e0e0e0;
-    border: none;
-    cursor: pointer;
-    font-weight: 500;
-    transition: background 0.3s;
+    position: relative; /* Permite posicionamento absoluto de elementos filhos */
+    padding: 12px 20px; /* Espaçamento interno */
+    background: #e0e0e0; /* Cor de fundo */
+    border: none; /* Remove borda padrão */
+    cursor: pointer; /* Cursor de pointer ao passar o mouse */
+    font-weight: 500; /* Peso da fonte */
+    transition: background 0.3s; /* Transição suave para mudanças de cor */
 }
 
+/* Efeito ao passar o mouse sobre as abas */
 .tab-button:hover {
-    background: #d0d0d0;
+    background: #d0d0d0; /* Cor mais escura no hover */
 }
 
+/* Estilo para a aba ativa */
 .tab-button.active {
-    background: white;
-    border-bottom: 3px solid #005288;
-    font-weight: bold;
+    background: white; /* Fundo branco */
+    border-bottom: 3px solid #005288; /* Borda inferior azul */
+    font-weight: bold; /* Texto em negrito */
 }
 
+/* Conteúdo das abas (inicialmente oculto) */
 .tab-content {
-    display: none;
-    padding: 20px;
+    display: none; /* Oculta por padrão */
+    padding: 20px; /* Espaçamento interno */
 }
 
+/* Mostra o conteúdo da aba ativa */
 .tab-content.active {
-    display: block;
+    display: block; /* Exibe como bloco */
 }
 
+/* Container do calendário com rolagem horizontal se necessário */
 .calendar-container {
-    overflow-x: auto;
+    overflow-x: auto; /* Habilita rolagem horizontal se necessário */
 }
 
+/* Título do ano e aeronave */
 .year-title {
-    text-align: center;
-    margin: 15px 0;
-    color: #005288;
+    text-align: center; /* Centraliza texto */
+    margin: 15px 0; /* Margem superior e inferior */
+    color: #005288; /* Cor azul */
 }
 
+/* Informações da aeronave */
 .aircraft-info {
-    text-align: center;
-    margin-bottom: 15px;
-    font-style: italic;
-    color: #666;
+    text-align: center; /* Centraliza texto */
+    margin-bottom: 15px; /* Margem inferior */
+    font-style: italic; /* Texto em itálico */
+    color: #666; /* Cor cinza */
 }
 
+/* Grid para os meses (3 colunas por padrão) */
 .months-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    display: grid; /* Layout em grid */
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas de tamanho igual */
+    gap: 20px; /* Espaço entre os elementos */
 }
 
+/* Media query para tablets (até 900px) */
 @media (max-width: 900px) {
     .months-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas em tablets */
     }
 }
 
+/* Media query para celulares (até 600px) */
 @media (max-width: 600px) {
     .months-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* 1 coluna em celulares */
     }
 }
 
+/* Estilo para cada mês */
 .month {
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
-    transition: transform 0.2s;
+    background: white; /* Fundo branco */
+    border: 1px solid #ddd; /* Borda cinza */
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 10px; /* Espaçamento interno */
+    transition: transform 0.2s; /* Transição suave para transformações */
 }
 
+/* Efeito ao passar o mouse sobre o mês */
 .month:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px); /* Move ligeiramente para cima */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra mais pronunciada */
 }
 
+/* Nome do mês */
 .month-name {
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #eeeeee;
-    color: #005288;
+    text-align: center; /* Centraliza texto */
+    font-weight: bold; /* Texto em negrito */
+    margin-bottom: 10px; /* Margem inferior */
+    padding-bottom: 5px; /* Espaçamento inferior */
+    border-bottom: 1px solid #eeeeee; /* Borda inferior sutil */
+    color: #005288; /* Cor azul */
 }
 
+/* Container dos dias da semana */
 .weekdays {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    text-align: center;
-    font-weight: bold;
-    font-size: 12px;
-    margin-bottom: 5px;
+    display: grid; /* Layout em grid */
+    grid-template-columns: repeat(7, 1fr); /* 7 colunas (um para cada dia) */
+    text-align: center; /* Centraliza texto */
+    font-weight: bold; /* Texto em negrito */
+    font-size: 12px; /* Tamanho de fonte menor */
+    margin-bottom: 5px; /* Margem inferior */
 }
 
+/* Container dos dias do mês */
 .days {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 2px;
+    display: grid; /* Layout em grid */
+    grid-template-columns: repeat(7, 1fr); /* 7 colunas (uma para cada dia da semana) */
+    gap: 2px; /* Pequeno espaço entre os dias */
 }
 
+/* Estilo para cada dia */
 .day {
-    text-align: center;
-    padding: 5px;
-    font-size: 12px;
-    border-radius: 3px;
-    transition: background-color 0.2s;
-    position: relative;
+    text-align: center; /* Centraliza texto */
+    padding: 5px; /* Espaçamento interno */
+    font-size: 12px; /* Tamanho de fonte menor */
+    border-radius: 3px; /* Bordas ligeiramente arredondadas */
+    transition: background-color 0.2s; /* Transição suave para mudanças de cor */
+    position: relative; /* Permite posicionamento absoluto de elementos filhos */
 }
 
+/* Dias vazios (para alinhamento) */
 .day.empty {
-    background: transparent;
-    border: none;
+    background: transparent; /* Fundo transparente */
+    border: none; /* Sem borda */
 }
 
+/* Dias em período de manutenção */
 .day.maintenance {
-    background-color: #ffeb3b;
-    font-weight: bold;
+    background-color: #ffeb3b; /* Amarelo */
+    font-weight: bold; /* Texto em negrito */
 }
 
+/* Dia atual (não implementado no JS) */
 .day.today {
-    border: 2px solid #005288;
+    border: 2px solid #005288; /* Borda azul */
 }
 
+/* Efeito ao passar o mouse sobre os dias */
 .day:hover {
-    background-color: #e0e0e0;
-    cursor: pointer;
+    background-color: #e0e0e0; /* Cor cinza */
+    cursor: pointer; /* Cursor de pointer */
 }
 
+/* Efeito ao passar o mouse sobre dias de manutenção */
 .day.maintenance:hover {
-    background-color: #ffd54f;
+    background-color: #ffd54f; /* Amarelo mais escuro */
 }
 
+/* Tooltip para os dias */
 .day-tooltip {
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #333;
-    color: white;
-    padding: 5px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-    white-space: nowrap;
-    z-index: 100;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s;
+    position: absolute; /* Posicionamento absoluto em relação ao dia */
+    bottom: 100%; /* Posiciona acima do dia */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajusta para centralizar perfeitamente */
+    background-color: #333; /* Fundo escuro */
+    color: white; /* Texto branco */
+    padding: 5px 8px; /* Espaçamento interno */
+    border-radius: 4px; /* Bordas arredondadas */
+    font-size: 12px; /* Tamanho de fonte menor */
+    white-space: nowrap; /* Impede quebra de linha */
+    z-index: 100; /* Garante que fique acima de outros elementos */
+    opacity: 0; /* Inicialmente invisível */
+    visibility: hidden; /* Inicialmente invisível */
+    transition: opacity 0.3s; /* Transição suave para opacidade */
 }
 
+/* Mostra o tooltip ao passar o mouse sobre o dia */
 .day:hover .day-tooltip {
-    opacity: 1;
-    visibility: visible;
+    opacity: 1; /* Torna visível */
+    visibility: visible; /* Torna visível */
 }
 
+/* Container da legenda */
 .legend {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    padding: 10px;
-    background: #f9f9f9;
-    border-radius: 5px;
-    flex-wrap: wrap;
+    display: flex; /* Layout flexível */
+    justify-content: center; /* Centraliza horizontalmente */
+    margin-top: 20px; /* Margem superior */
+    padding: 10px; /* Espaçamento interno */
+    background: #f9f9f9; /* Fundo cinza muito claro */
+    border-radius: 5px; /* Bordas arredondadas */
+    flex-wrap: wrap; /* Permite quebra de linha se necessário */
 }
 
+/* Cada item da legenda */
 .legend-item {
-    display: flex;
-    align-items: center;
-    margin: 5px 15px;
+    display: flex; /* Layout flexível */
+    align-items: center; /* Alinha verticalmente ao centro */
+    margin: 5px 15px; /* Margem entre itens */
 }
 
+/* Caixa de cor na legenda */
 .color-box {
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
-    border: 1px solid #ddd;
+    width: 20px; /* Largura */
+    height: 20px; /* Altura */
+    margin-right: 5px; /* Margem à direita */
+    border: 1px solid #ddd; /* Borda cinza */
 }
 
+/* Cor para período de manutenção na legenda */
 .maintenance-color {
-    background-color: #ffeb3b;
+    background-color: #ffeb3b; /* Amarelo */
 }
 
+/* Cor para dia atual na legenda (não implementado) */
 .today-color {
-    background-color: #ffffff;
-    border: 2px solid #005288;
+    background-color: #ffffff; /* Branco */
+    border: 2px solid #005288; /* Borda azul */
 }
 
+/* Rodapé */
 footer {
-    text-align: center;
-    padding: 20px;
-    margin-top: 20px;
-    color: #666;
-    font-size: 14px;
+    text-align: center; /* Centraliza texto */
+    padding: 20px; /* Espaçamento interno */
+    margin-top: 20px; /* Margem superior */
+    color: #666; /* Cor cinza */
+    font-size: 14px; /* Tamanho de fonte menor */
 }
 
 /* Tooltip para as abas */
 .tab-tooltip {
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #333;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 4px;
-    font-size: 12px;
-    white-space: nowrap;
-    z-index: 100;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s;
-    pointer-events: none;
+    position: absolute; /* Posicionamento absoluto em relação ao botão */
+    bottom: 100%; /* Posiciona acima do botão */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajusta para centralizar perfeitamente */
+    background-color: #333; /* Fundo escuro */
+    color: white; /* Texto branco */
+    padding: 8px 12px; /* Espaçamento interno */
+    border-radius: 4px; /* Bordas arredondadas */
+    font-size: 12px; /* Tamanho de fonte menor */
+    white-space: nowrap; /* Impede quebra de linha */
+    z-index: 100; /* Garante que fique acima de outros elementos */
+    opacity: 0; /* Inicialmente invisível */
+    visibility: hidden; /* Inicialmente invisível */
+    transition: opacity 0.3s; /* Transição suave para opacidade */
+    pointer-events: none; /* Impede que o tooltip interfira com eventos do mouse */
 }
 
+/* Mostra o tooltip ao passar o mouse sobre a aba */
 .tab-button:hover .tab-tooltip {
-    opacity: 1;
-    visibility: visible;
+    opacity: 1; /* Torna visível */
+    visibility: visible; /* Torna visível */
 }
-/* NOVO CÓDIGO PARA DIAS DE ATRASO - */
+
+/* NOVO CÓDIGO PARA DIAS DE ATRASO - Estilo para dias de atraso */
 .day.delay {
     background-color: #ff8a80; /* Vermelho claro */
-    font-weight: bold;
+    font-weight: bold; /* Texto em negrito */
 }
 
+/* Efeito ao passar o mouse sobre dias de atraso */
 .day.delay:hover {
     background-color: #ff5252; /* Vermelho mais escuro no hover */
 }
