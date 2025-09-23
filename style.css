@@ -303,4 +303,8 @@ footer {
 .day.delay:hover {
     background-color: #ff5252; /* Vermelho mais escuro no hover */
 }
+/* NOVA COR PARA A LEGENDA DE ATRASO */
+.delay-color {
+    background-color: #ff8a80; /* Vermelho claro - mesma cor dos dias de atraso */
+}
 /* FIM DO NOVO CÓDIGO CSS */
