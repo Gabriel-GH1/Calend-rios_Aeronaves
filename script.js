@@ -1,4 +1,5 @@
 // Dados dos períodos de manutenção de cada aeronave
+//colocar 1 dia a mais no código para mostrar marcação correta na página
 const aircraftData = {
     'pp-fcf': {
         prefix: 'PP-FCF',
@@ -27,15 +28,22 @@ const aircraftData = {
      'pr-rex': {
         prefix: 'PR-REX',
         entrada: new Date('2025-04-10'),  // Defina a data de entrada precisa colocar 1 dia a mais também
-        saida: new Date('2025-08-15'),    // Defina a data de saída, colocar 1 dia a mais no código para mostrar certo na página
+        saida: new Date('2025-08-15'),    // Defina a data de saída
         info: "Manutenção programada para revisão de motores"
     },
     'pr-arb': {
         prefix: 'PR-ARB',
         entrada: new Date('2025-02-08'),  // Defina a data de entrada
-        saida: new Date('2025-09-24'),    // Defina a data de saída, colocar 1 dia a mais no código para mostrar certo na página
-          info: "Substituição de sistema de combustível - Atraso na conclusão devido a panes"
+        saida: new Date('2025-10-08'),    // Defina a data de saída
+          info: "Substituição de sistema de combustível - Nova data de saída"
+    },
+     'pr-day': {  
+        prefix: 'PR-DAY',
+        entrada: new Date('2025-09-18'),
+        saida: new Date('2025-09-31'),
+        info: "Manutenção programada - Nova aeronave"
     }
+
 };
 
 
@@ -162,48 +170,66 @@ function generateCalendar(aircraftId, data) {
             emptyDay.className = 'day empty';
             daysContainer.appendChild(emptyDay);
         }
+       // Dias do mês
+for (let day = 1; day <= lastDay.getDate(); day++) {
+    const dayElement = document.createElement('div');
+    dayElement.className = 'day';
+    dayElement.textContent = day;
+    
+    const currentDate = new Date(year, month, day);
+    const dayOfWeek = currentDate.getDay(); // 0 = Domingo, 6 = Sábado
+    
+    // Verifique se este dia está dentro do período de manutenção E é um dia útil
+    if (currentDate >= data.entrada && currentDate <= data.saida && dayOfWeek !== 0 && dayOfWeek !== 6) {
+        dayElement.classList.add('maintenance');
         
-        // Dias do mês
-        for (let day = 1; day <= lastDay.getDate(); day++) {
-            const dayElement = document.createElement('div');
-            dayElement.className = 'day';
-            dayElement.textContent = day;
-            
-            const currentDate = new Date(year, month, day);
-            const dayOfWeek = currentDate.getDay(); // 0 = Domingo, 6 = Sábado
-            
-            // Verifique se este dia está dentro do período de manutenção E é um dia útil
-            if (currentDate >= data.entrada && currentDate <= data.saida && dayOfWeek !== 0 && dayOfWeek !== 6) {
-                dayElement.classList.add('maintenance');
-                
-// VERIFICAÇÃO ESPECIAL PARA PP-FCF e PR-ARB: Dias de atraso
-if (aircraftId === 'pp-fcf' && saidaPlanejada && currentDate > saidaPlanejada) {
-    dayElement.classList.add('delay');
-    
-    // Atualiza o tooltip para mostrar que é atraso
-    const tooltip = document.createElement('div');
-    tooltip.className = 'day-tooltip';
-    tooltip.textContent = `${data.prefix} - Conclusão com atraso`;
-    dayElement.appendChild(tooltip);
-} else if (aircraftId === 'pr-arb' && saidaPlanejadaPRARB && currentDate > saidaPlanejadaPRARB) {
-    dayElement.classList.add('delay'); // Adiciona classe de atraso
-    
-    // Cria e adiciona um tooltip específico para dias de atraso
-    const tooltip = document.createElement('div');
-    tooltip.className = 'day-tooltip';
-    tooltip.textContent = `${data.prefix} - Conclusão com atraso`;
-    dayElement.appendChild(tooltip);
-} else {
-    // Tooltip normal para outros dias de manutenção
-    const tooltip = document.createElement('div');
-    tooltip.className = 'day-tooltip';
-    tooltip.textContent = `${data.prefix} em manutenção`;
-    dayElement.appendChild(tooltip);
-}
-            }
-            
-            daysContainer.appendChild(dayElement);
+        // CRIAR TOOLTIP PARA DIAS DE MANUTENÇÃO
+        const tooltip = document.createElement('div');
+        tooltip.className = 'day-tooltip';
+        
+        // VERIFICAÇÃO ESPECÍFICA PARA O DIA DE SAÍDA DE CADA AERONAVE
+        const saidaDates = {
+            'pp-fcf': '16/09',
+            'pr-msz': '29/08', 
+            'pp-emo': '29/08',
+            'ps-ece': '27/08',
+            'pr-rex': '14/08',
+            'pr-arb': '07/10',
+            'pr-day': '30/09'
+        };
+        
+        // Formata a data atual para comparar (dd/mm)
+        const currentDay = String(day).padStart(2, '0');
+        const currentMonth = String(month + 1).padStart(2, '0');
+        const currentDateFormatted = `${currentDay}/${currentMonth}`;
+        
+        // Verifica se é o dia de saída específico
+        if (saidaDates[aircraftId] === currentDateFormatted) {
+            tooltip.textContent = `${data.prefix} - Manutenção concluída`;
+        } else {
+            tooltip.textContent = `${data.prefix} - Em manutenção`;
         }
+        
+        dayElement.appendChild(tooltip);
+        
+        // VERIFICAÇÃO ESPECIAL PARA PP-FCF e Posteriormente outra: Dias de atraso
+        if (aircraftId === 'pp-fcf' && saidaPlanejada && currentDate > saidaPlanejada) {
+            dayElement.classList.add('delay');
+            
+            // Atualiza o tooltip para mostrar que é atraso
+            if (saidaDates[aircraftId] === currentDateFormatted) {
+                tooltip.textContent = `${data.prefix} - Manutenção concluída com atraso`;
+            } else {
+                tooltip.textContent = `${data.prefix} - Conclusão com atraso`;
+            }
+        }
+       
+    }
+    
+    daysContainer.appendChild(dayElement);
+}
+       
+           
         
         monthElement.appendChild(daysContainer);
         calendarContainer.appendChild(monthElement);
@@ -215,13 +241,13 @@ if (aircraftId === 'pp-fcf' && saidaPlanejada && currentDate > saidaPlanejada) {
     }
 }
 
-// Função para retornar os dias úteis fixos que você quer
 function getDiasUteisFixos(aircraftId) {
-    if (aircraftId === 'pp-fcf') return 42;  // Alterado para 42
-    if (aircraftId === 'pr-msz') return 16;  // Alterado para 16
-    if (aircraftId === 'pp-emo') return 11;  // Alterado para 11
-    if (aircraftId === 'ps-ece') return 9;   // Alterado para 9
-     if (aircraftId === 'pr-rex') return 88;  // Defina os dias úteis para PR-REX
-    if (aircraftId === 'pr-arb') return 156;  // Defina os dias úteis para PR-ARB
+    if (aircraftId === 'pp-fcf') return 42;
+    if (aircraftId === 'pr-msz') return 16;
+    if (aircraftId === 'pp-emo') return 11;
+    if (aircraftId === 'ps-ece') return 9;
+    if (aircraftId === 'pr-rex') return 88;
+    if (aircraftId === 'pr-arb') return 166;
+    if (aircraftId === 'pr-day') return 9;  // ← ADICIONE ESTA LINHA
     return 0;
 }

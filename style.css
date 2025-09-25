@@ -307,4 +307,64 @@ footer {
 .delay-color {
     background-color: #ff8a80; /* Vermelho claro - mesma cor dos dias de atraso */
 }
+/* MELHORIAS NO TOOLTIP DOS DIAS */
+.day-tooltip {
+    position: absolute;
+    bottom: 100%; /* Posiciona acima do dia */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    font-weight: normal;
+    text-align: center;
+    min-width: 180px;
+}
+
+/* Seta do tooltip */
+.day-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+/* Mostra o tooltip ao passar o mouse */
+.day:hover .day-tooltip {
+    opacity: 1;
+    visibility: visible;
+    bottom: 120%; /* Levanta um pouco mais o tooltip */
+}
+
+/* Tooltip específico para dias de manutenção */
+.day.maintenance:hover .day-tooltip {
+    background-color: #005288; /* Azul da empresa */
+}
+
+.day.maintenance:hover .day-tooltip::after {
+    border-color: #005288 transparent transparent transparent;
+}
+
+/* Tooltip específico para dias de atraso */
+.day.delay:hover .day-tooltip {
+    background-color: #d32f2f; /* Vermelho para atraso */
+}
+
+.day.delay:hover .day-tooltip::after {
+    border-color: #d32f2f transparent transparent transparent;
+} 
+
 /* FIM DO NOVO CÓDIGO CSS */
