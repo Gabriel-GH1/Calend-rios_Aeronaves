@@ -39,9 +39,9 @@ const aircraftData = {
     },
      'pr-day': {  
         prefix: 'PR-DAY',
-        entrada: new Date('2025-09-18'),
+        entrada: new Date('2025-09-19'),
         saida: new Date('2025-09-31'),
-        info: "Manutenção programada - Nova aeronave"
+        info: "Manutenção CVA"
     }
 
 };
