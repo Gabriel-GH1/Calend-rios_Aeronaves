@@ -3,53 +3,52 @@
 const aircraftData = {
     'pp-fcf': {
         prefix: 'PP-FCF',
-        entrada: new Date('2025-07-21'),
-        saida: new Date('2025-09-17'), // ATUALIZADO: de 13/09 para 17/09
+        entrada: new Date(2025, 6, 21),    // 21/07/2025
+        saida: new Date(2025, 8, 16),      // 16/09/2025 (data real) fuso horário local
         info: "Manutenção programada para revisão geral - Concluída com atraso"
     },
     'pr-msz': {
         prefix: 'PR-MSZ',
-        entrada: new Date('2025-08-08'),
-        saida: new Date('2025-08-30'),
-        info: "Manutenção de sistemas hidráulicos"
+        entrada: new Date(2025, 7, 8),     // 08/08/2025
+        saida: new Date(2025, 8, 29),      // 29/08/2025 (data real) fuso horário local 
+        info: "Pane Precooler + CVA"
     },
     'pp-emo': {
         prefix: 'PP-EMO',
-        entrada: new Date('2025-08-15'),
-        saida: new Date('2025-08-30'),
-        info: "Substituição de componentes da asa direita"
+        entrada: new Date(2025, 7, 15),    // 15/08/2025
+        saida: new Date(2025, 8, 29),      // 29/08/2025 (data real) fuso horário local
+        info: "Manutenção CVA"
     },
     'ps-ece': {
         prefix: 'PS-ECE',
-        entrada: new Date('2025-08-15'),
-        saida: new Date('2025-08-28'),
-        info: "Atualização de sistemas de navegação"
+        entrada: new Date(2025, 7, 15),    // 15/08/2025
+        saida: new Date(2025, 8, 27),      // 27/08/2025 (data real) fuso horário local
+        info: "Manutenção CVA"
     },
-     'pr-rex': {
+    'pr-rex': {
         prefix: 'PR-REX',
-        entrada: new Date('2025-04-10'),  // Defina a data de entrada precisa colocar 1 dia a mais também
-        saida: new Date('2025-08-15'),    // Defina a data de saída
-        info: "Manutenção programada para revisão de motores"
+        entrada: new Date(2025, 3, 10),    // 10/04/2025
+        saida: new Date(2025, 7, 14),      // 14/08/2025 (data real) fuso horário local
+        info: "Manutenção CVA"
     },
     'pr-arb': {
         prefix: 'PR-ARB',
-        entrada: new Date('2025-02-08'),  // Defina a data de entrada
-        saida: new Date('2025-10-08'),    // Defina a data de saída
-          info: "Substituição de sistema de combustível - Nova data de saída"
-    },
-     'pr-day': {  
-        prefix: 'PR-DAY',
-        entrada: new Date('2025-09-19'),
-        saida: new Date('2025-09-31'),
+        entrada: new Date(2025, 1, 10),    // 10/02/2025
+        saida: new Date(2025, 9, 7),       // 07/10/2025 (data real) fuso horário local
         info: "Manutenção CVA"
     },
-     'pr-fil': {
-      prefix: 'PR-FIL',
-      entrada: new Date('2025-10-01'),
-      saida: new Date('2025-12-02'),
-      info: "Manutenção 15 Anos + CVA"
-     }   
-
+    'pr-day': {  
+        prefix: 'PR-DAY',
+        entrada: new Date(2025, 8, 18),    // 18/09/2025
+        saida: new Date(2025, 8, 30),      // 30/09/2025 (data real) fuso horário local
+        info: "Manutenção CVA"
+    },
+    'pr-fil': {
+        prefix: 'PR-FIL',
+        entrada: new Date(2025, 9, 1),     // 01/10/2025
+        saida: new Date(2025, 11, 1),      // 01/12/2025 (data real) fuso horário local
+        info: "Manutenção 15 Anos + CVA"
+    }
 };
 
 
@@ -194,17 +193,16 @@ for (let day = 1; day <= lastDay.getDate(); day++) {
         tooltip.className = 'day-tooltip';
         
         // VERIFICAÇÃO ESPECÍFICA PARA O DIA DE SAÍDA DE CADA AERONAVE
-        const saidaDates = {
-            'pp-fcf': '16/09',
-            'pr-msz': '29/08', 
-            'pp-emo': '29/08',
-            'ps-ece': '27/08',
-            'pr-rex': '14/08',
-            'pr-arb': '07/10',
-            'pr-day': '30/09',
-            'pr-fil': '01/12'
-        };
-        
+         const saidaDates = {
+        'pp-fcf': '16/09',
+        'pr-msz': '29/08', 
+        'pp-emo': '29/08',
+        'ps-ece': '27/08',
+        'pr-rex': '14/08',
+        'pr-arb': '07/10',
+        'pr-day': '30/09',
+        'pr-fil': '01/12'
+};
         // Formata a data atual para comparar (dd/mm)
         const currentDay = String(day).padStart(2, '0');
         const currentMonth = String(month + 1).padStart(2, '0');
