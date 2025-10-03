@@ -42,6 +42,9 @@
           PR-DAY
           <div class="tab-tooltip">Clique para ver detalhes</div>
         </button>
+        <button class="tab-button" onclick="openTab('pr-fil')" data-aircraft="pr-fil">
+          PR-FIL
+          <div class="tab-tooltip">Clique para ver detalhes</div>
       </div>
 
       <div id="pp-fcf" class="tab-content active">
@@ -155,6 +158,25 @@
         </div>
       </div>
 
+      <div id="pr-fil" class="tab-content">
+        <h2 class="year-title">PR-FIL - Calendário 2025</h2>
+        <p class="aircraft-info" id="pr-fil-info">Passe o mouse sobre os dias para mais informações</p>
+        <div class="legend">
+          <div class="legend-item">
+            <div class="color-box maintenance-color"></div>
+            <span>Período de Manutenção</span>
+          </div>
+          <div class="legend-item">
+            <span></span>
+          </div>
+        </div>
+        <div class="calendar-container">
+          <div class="months-grid" id="pr-fil-calendar">
+            <!-- JavaScript vai preencher isso -->
+          </div>
+        </div>
+      </div>    <!-- olhaaaaaaa aquiiiiiii quaaal querrr coisaaaaaaaaaaaaaaaaaaaa-->
+       
       <footer>
         <p>Desenvolvido para o Controle de Manutenção de Aeronaves | Atualizado em: <span id="current-date"></span></p>
       </footer>

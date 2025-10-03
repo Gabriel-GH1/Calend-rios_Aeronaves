@@ -309,37 +309,37 @@ footer {
 }
 /* MELHORIAS NO TOOLTIP DOS DIAS */
 .day-tooltip {
-    position: absolute;
+    position: absolute;  /* Posicionamento absoluto em relação ao elemento pai */
     bottom: 100%; /* Posiciona acima do dia */
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #333;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 6px;
-    font-size: 12px;
-    white-space: nowrap;
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    pointer-events: none;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-    font-weight: normal;
-    text-align: center;
-    min-width: 180px;
+    left: 50%;  /* Centraliza horizontalmente */
+    transform: translateX(-50%);  /* Ajuste fino para centralização perfeita */
+    background-color: #333;  /* Cor de fundo escura */
+    color: white;  /* Cor do texto */
+    padding: 8px 12px;  /* Espaçamento interno */
+    border-radius: 6px;  /* Cantos arredondados */
+    font-size: 12px;  /* Tamanho da fonte menor */
+    white-space: nowrap;  /* Impede quebra de linha */
+    z-index: 1000;  /* Garante que fique acima de outros elementos */
+    opacity: 0;  /* Inicialmente invisível */
+    visibility: hidden;  /* Inicialmente escondido */
+    transition: all 0.3s ease;  /* Transição suave para animação */
+    pointer-events: none;  /* Impede interferência com outros eventos */
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);  /* Sombra para destaque */
+    font-weight: normal;  /* Peso da fonte normal */
+    text-align: center;  /* Texto centralizado */
+    min-width: 180px;  /* Largura mínima para consistência */
 }
 
-/* Seta do tooltip */
+/* Seta do tooltip - elemento decorativo */
 .day-tooltip::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 5px;
-    border-style: solid;
-    border-color: #333 transparent transparent transparent;
+    content: '';  /* Conteúdo vazio - elemento puramente visual */
+    position: absolute;  /* Posicionamento absoluto */
+    top: 100%;  /* Posiciona abaixo do tooltip */
+    left: 50%;  /* Centraliza horizontalmente */
+    transform: translateX(-50%);  /* Ajuste de centralização */
+    border-width: 5px;  /* Tamanho da seta */
+    border-style: solid;  /* Estilo da borda */
+    border-color: #333 transparent transparent transparent;  /* Cores: preto em cima, transparente nas laterais */
 }
 
 /* Mostra o tooltip ao passar o mouse */

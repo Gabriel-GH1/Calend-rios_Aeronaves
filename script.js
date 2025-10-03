@@ -42,7 +42,13 @@ const aircraftData = {
         entrada: new Date('2025-09-19'),
         saida: new Date('2025-09-31'),
         info: "Manutenção CVA"
-    }
+    },
+     'pr-fil': {
+      prefix: 'PR-FIL',
+      entrada: new Date('2025-10-01'),
+      saida: new Date('2025-12-02'),
+      info: "Manutenção 15 Anos + CVA"
+     }   
 
 };
 
@@ -195,7 +201,8 @@ for (let day = 1; day <= lastDay.getDate(); day++) {
             'ps-ece': '27/08',
             'pr-rex': '14/08',
             'pr-arb': '07/10',
-            'pr-day': '30/09'
+            'pr-day': '30/09',
+            'pr-fil': '01/12'
         };
         
         // Formata a data atual para comparar (dd/mm)
@@ -248,6 +255,7 @@ function getDiasUteisFixos(aircraftId) {
     if (aircraftId === 'ps-ece') return 9;
     if (aircraftId === 'pr-rex') return 88;
     if (aircraftId === 'pr-arb') return 166;
-    if (aircraftId === 'pr-day') return 9;  // ← ADICIONE ESTA LINHA
+    if (aircraftId === 'pr-day') return 9;
+    if (aircraftId === 'pr-fil') return 44; 
     return 0;
 }
