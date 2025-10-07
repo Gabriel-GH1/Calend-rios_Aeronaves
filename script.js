@@ -10,13 +10,13 @@ const aircraftData = {
     'pr-msz': {
         prefix: 'PR-MSZ',
         entrada: new Date(2025, 7, 8),     // 08/08/2025
-        saida: new Date(2025, 8, 29),      // 29/08/2025 (data real) fuso horário local 
+        saida: new Date(2025, 7, 29),      // 29/08/2025 (data real) fuso horário local 
         info: "Pane Precooler + CVA"
     },
     'pp-emo': {
         prefix: 'PP-EMO',
         entrada: new Date(2025, 7, 15),    // 15/08/2025
-        saida: new Date(2025, 8, 29),      // 29/08/2025 (data real) fuso horário local
+        saida: new Date(2025, 7, 29),      // 29/08/2025 (data real) fuso horário local
         info: "Manutenção CVA"
     },
     'ps-ece': {
@@ -27,7 +27,7 @@ const aircraftData = {
     },
     'pr-rex': {
         prefix: 'PR-REX',
-        entrada: new Date(2025, 3, 10),    // 10/04/2025
+        entrada: new Date(2025, 3, 9),    // 9/04/2025
         saida: new Date(2025, 7, 14),      // 14/08/2025 (data real) fuso horário local
         info: "Manutenção CVA"
     },
