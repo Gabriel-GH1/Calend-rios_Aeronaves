@@ -5,7 +5,7 @@ const aircraftData = {
         prefix: 'PP-FCF',
         entrada: new Date(2025, 6, 21),    // 21/07/2025
         saida: new Date(2025, 8, 16),      // 16/09/2025 (data real) fuso horário local
-        info: "Manutenção programada para revisão geral - Concluída com atraso"
+        info: "CVA + DOC44- Concluída com atraso"
     },
     'pr-msz': {
         prefix: 'PR-MSZ',
