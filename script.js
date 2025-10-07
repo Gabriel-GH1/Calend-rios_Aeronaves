@@ -22,7 +22,7 @@ const aircraftData = {
     'ps-ece': {
         prefix: 'PS-ECE',
         entrada: new Date(2025, 7, 15),    // 15/08/2025
-        saida: new Date(2025, 8, 27),      // 27/08/2025 (data real) fuso horário local
+        saida: new Date(2025, 7, 27),      // 27/07/2025 (data real) fuso horário local
         info: "Manutenção CVA"
     },
     'pr-rex': {
@@ -48,6 +48,12 @@ const aircraftData = {
         entrada: new Date(2025, 9, 1),     // 01/10/2025
         saida: new Date(2025, 11, 1),      // 01/12/2025 (data real) fuso horário local
         info: "Manutenção 15 Anos + CVA"
+    },
+    'pr-eft': {
+        prefix: 'PR-EFT',
+        entrada: new Date(2025, 9, 10),     //10/10/2025
+        saida: new Date(2025, 9, 31),      // 31/10/2025 (data real) fuso horário local
+        info: "CVA + Intervalos"
     }
 };
 
@@ -197,11 +203,12 @@ for (let day = 1; day <= lastDay.getDate(); day++) {
         'pp-fcf': '16/09',
         'pr-msz': '29/08', 
         'pp-emo': '29/08',
-        'ps-ece': '27/08',
+        'ps-ece': '27/07',
         'pr-rex': '14/08',
         'pr-arb': '07/10',
         'pr-day': '30/09',
-        'pr-fil': '01/12'
+        'pr-fil': '01/12',
+        'pr-eft': '31/10'
 };
         // Formata a data atual para comparar (dd/mm)
         const currentDay = String(day).padStart(2, '0');
@@ -255,5 +262,6 @@ function getDiasUteisFixos(aircraftId) {
     if (aircraftId === 'pr-arb') return 166;
     if (aircraftId === 'pr-day') return 9;
     if (aircraftId === 'pr-fil') return 44; 
+    if (aircraftId === 'pr-eft') return 16;
     return 0;
 }

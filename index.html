@@ -45,6 +45,10 @@
         <button class="tab-button" onclick="openTab('pr-fil')" data-aircraft="pr-fil">
           PR-FIL
           <div class="tab-tooltip">Clique para ver detalhes</div>
+          <button class="tab-button" onclick="openTab('pr-eft')" data-aircraft="pr-eft">
+          PR-EFT
+          <div class="tab-tooltip">Clique para ver detalhes</div>
+          </button>
       </div>
 
       <div id="pp-fcf" class="tab-content active">
@@ -177,6 +181,22 @@
         </div>
       </div>    
        
+      <!-- ✅ NOVA ABA FORA DA PR-FIL, ANTES DO FOOTER ✅ -->
+<div id="pr-eft" class="tab-content">
+    <h2 class="year-title">PR-EFT - Calendário 2025</h2>
+    <p class="aircraft-info" id="pr-eft-info">Passe o mouse sobre os dias para mais informações</p>
+    <div class="legend">
+        <div class="legend-item">
+            <div class="color-box maintenance-color"></div>
+            <span>Período de Manutenção</span>
+        </div>
+        <div class="legend-item"><span></span></div>
+    </div>
+    <div class="calendar-container">
+        <div class="months-grid" id="pr-eft-calendar"></div>
+    </div>
+</div>
+
       <footer>
         <p>Desenvolvido por Gabriel GH para o Controle de Manutenção de Aeronaves | Atualizado em: <span id="current-date"></span></p>
       </footer>
