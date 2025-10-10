@@ -61,6 +61,13 @@ const localAircraftData = {
 
 // Buscar dados da API
 async function fetchAircraftData() {
+    // 🔥 DETECTAR GITHUB PAGES - usar dados locais
+    if (window.location.hostname.includes('github.io')) {
+        console.log('🌐 GitHub Pages detectado - usando dados locais');
+        return localAircraftData;
+    }
+    
+    // Localmente, tentar a API normal
     try {
         console.log('🔄 Buscando dados da API...');
         const response = await fetch(API_URL);
