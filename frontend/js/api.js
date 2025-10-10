@@ -1,5 +1,5 @@
 // frontend/js/api.js - Arquivo dedicado para API
-const API_URL = 'http://localhost:3001/api/aeronaves';
+const API_URL = 'http://localhost:3002/api/aeronaves';
 
 // Dados locais como fallback (SEUS DADOS ATUAIS)
 const localAircraftData = {

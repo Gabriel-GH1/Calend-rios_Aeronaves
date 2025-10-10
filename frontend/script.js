@@ -1,11 +1,15 @@
-// Dados globais (serão preenchidos pela API)
-let aircraftData = {};
+// ==================================================
+// script.js CORRIGIDO - COM VARIÁVEIS GLOBAIS
+// ==================================================
+
+// Dados globais (serão preenchidos pela API) - ✅ CORRIGIDO
+window.aircraftData = {};
 
 // Função para carregar dados
 async function loadAircraftData() {
     const apiData = await API.fetchAircraftData();
-    aircraftData = API.parseAPIData(apiData);
-    console.log('📊 Dados carregados:', Object.keys(aircraftData).length, 'aeronaves');
+    window.aircraftData = API.parseAPIData(apiData); // ✅ CORRIGIDO
+    console.log('📊 Dados carregados:', Object.keys(window.aircraftData).length, 'aeronaves'); // ✅ CORRIGIDO
 }
 
 // Função para alternar entre abas
@@ -36,7 +40,7 @@ document.getElementById('current-date').textContent = new Date().toLocaleDateStr
 
 // Atualizar informações da aeronave
 function updateAircraftInfo(aircraftId) {
-    const data = aircraftData[aircraftId];
+    const data = window.aircraftData[aircraftId]; // ✅ CORRIGIDO
     const infoElement = document.getElementById(`${aircraftId}-info`);
     
     if (data && infoElement) {
@@ -70,11 +74,11 @@ function calculateDaysDifference(startDate, endDate) {
 document.querySelectorAll('.tab-button').forEach(button => {
     const aircraftId = button.getAttribute('data-aircraft');
     
-    // Adicionar tooltip dengan informasi da aeronave
+    // Adicionar tooltip dengan informações da aeronave
     const tooltip = button.querySelector('.tab-tooltip');
     
     button.addEventListener('mouseenter', () => {
-        const data = aircraftData[aircraftId];
+        const data = window.aircraftData[aircraftId]; // ✅ CORRIGIDO
         if (data) {
             const entradaFormatada = data.entrada.toLocaleDateString('pt-BR');
             const saidaFormatada = data.saida.toLocaleDateString('pt-BR');
@@ -87,12 +91,12 @@ document.querySelectorAll('.tab-button').forEach(button => {
 
 // Gerar calendário para cada aeronave
 async function generateCalendar(aircraftId) {
-    if (!aircraftData[aircraftId]) {
+    if (!window.aircraftData[aircraftId]) { // ✅ CORRIGIDO
         console.log('⏳ Aguardando dados para:', aircraftId);
         return;
     }
     
-    const data = aircraftData[aircraftId];
+    const data = window.aircraftData[aircraftId]; // ✅ CORRIGIDO
     const calendarContainer = document.getElementById(`${aircraftId}-calendar`);
     const year = data.entrada.getFullYear();
     const today = new Date();
@@ -228,7 +232,7 @@ async function initializeApp() {
     await loadAircraftData();
     
     // Gerar todos os calendários
-    Object.keys(aircraftData).forEach(aircraft => {
+    Object.keys(window.aircraftData).forEach(aircraft => { // ✅ CORRIGIDO
         generateCalendar(aircraft);
     });
     
