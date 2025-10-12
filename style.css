@@ -1,3 +1,28 @@
+/* Tooltip para preview de entrada/saída nas abas */
+.tab-tooltip {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 110%;
+    transform: translateX(-50%);
+    background: #2d2d2d;
+    color: #ffffff;
+    border: 1px solid #1a1a1a;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 0.95em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    z-index: 10;
+    white-space: nowrap;
+}
+
+.tab-button {
+    position: relative;
+}
+
+.tab-button:hover .tab-tooltip {
+    display: block;
+}
 /* Reset básico para remover margens e paddings padrão e usar border-box */
 * {
     box-sizing: border-box; /* Inclui padding e border na largura/altura */
@@ -41,6 +66,7 @@ h1 {
     display: flex; /* Layout flexível para alinhar as abas horizontalmente */
     background: #e0e0e0; /* Cor de fundo cinza */
     border-bottom: 1px solid #ccc; /* Borda inferior */
+    flex-wrap: wrap; /* permite quebrar em linhas */
 }
 
 /* Estilo para os botões das abas */
@@ -52,6 +78,7 @@ h1 {
     cursor: pointer; /* Cursor de pointer ao passar o mouse */
     font-weight: 500; /* Peso da fonte */
     transition: background 0.3s; /* Transição suave para mudanças de cor */
+    margin: 6px; /* espaço entre botões */
 }
 
 /* Efeito ao passar o mouse sobre as abas */
@@ -206,21 +233,57 @@ h1 {
     transform: translateX(-50%); /* Ajusta para centralizar perfeitamente */
     background-color: #333; /* Fundo escuro */
     color: white; /* Texto branco */
-    padding: 5px 8px; /* Espaçamento interno */
-    border-radius: 4px; /* Bordas arredondadas */
-    font-size: 12px; /* Tamanho de fonte menor */
+    padding: 8px 12px; /* Espaçamento interno */
+    border-radius: 6px; /* Cantos arredondados */
+    font-size: 12px; /* Tamanho da fonte menor */
     white-space: nowrap; /* Impede quebra de linha */
-    z-index: 100; /* Garante que fique acima de outros elementos */
+    z-index: 1000; /* Garante que fique acima de outros elementos */
     opacity: 0; /* Inicialmente invisível */
-    visibility: hidden; /* Inicialmente invisível */
-    transition: opacity 0.3s; /* Transição suave para opacidade */
+    visibility: hidden; /* Inicialmente escondido */
+    transition: all 0.3s ease; /* Transição suave para animação */
+    pointer-events: none; /* Impede interferência com outros eventos */
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2); /* Sombra para destaque */
+    font-weight: normal; /* Peso da fonte normal */
+    text-align: center; /* Texto centralizado */
+    min-width: 180px; /* Largura mínima para consistência */
 }
 
-/* Mostra o tooltip ao passar o mouse sobre o dia */
-.day:hover .day-tooltip {
-    opacity: 1; /* Torna visível */
-    visibility: visible; /* Torna visível */
+/* Seta do tooltip - elemento decorativo */
+.day-tooltip::after {
+    content: ''; /* Conteúdo vazio - elemento puramente visual */
+    position: absolute; /* Posicionamento absoluto */
+    top: 100%; /* Posiciona abaixo do tooltip */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajuste de centralização */
+    border-width: 5px; /* Tamanho da seta */
+    border-style: solid; /* Estilo da borda */
+    border-color: #333 transparent transparent transparent; /* Cores: preto em cima, transparente nas laterais */
 }
+
+/* Mostra o tooltip ao passar o mouse */
+.day:hover .day-tooltip {
+    opacity: 1;
+    visibility: visible;
+    bottom: 120%; /* Levanta um pouco mais o tooltip */
+}
+
+/* Tooltip específico para dias de manutenção */
+.day.maintenance:hover .day-tooltip {
+    background-color: #005288; /* Azul da empresa */
+}
+
+.day.maintenance:hover .day-tooltip::after {
+    border-color: #005288 transparent transparent transparent;
+}
+
+/* Tooltip específico para dias de atraso */
+.day.delay:hover .day-tooltip {
+    background-color: #d32f2f; /* Vermelho para atraso */
+}
+
+.day.delay:hover .day-tooltip::after {
+    border-color: #d32f2f transparent transparent transparent;
+} 
 
 /* Container da legenda */
 .legend {
@@ -253,46 +316,6 @@ h1 {
     background-color: #ffeb3b; /* Amarelo */
 }
 
-/* Cor para dia atual na legenda (não implementado) */
-.today-color {
-    background-color: #ffffff; /* Branco */
-    border: 2px solid #005288; /* Borda azul */
-}
-
-/* Rodapé */
-footer {
-    text-align: center; /* Centraliza texto */
-    padding: 20px; /* Espaçamento interno */
-    margin-top: 20px; /* Margem superior */
-    color: #666; /* Cor cinza */
-    font-size: 14px; /* Tamanho de fonte menor */
-}
-
-/* Tooltip para as abas */
-.tab-tooltip {
-    position: absolute; /* Posicionamento absoluto em relação ao botão */
-    bottom: 100%; /* Posiciona acima do botão */
-    left: 50%; /* Centraliza horizontalmente */
-    transform: translateX(-50%); /* Ajusta para centralizar perfeitamente */
-    background-color: #333; /* Fundo escuro */
-    color: white; /* Texto branco */
-    padding: 8px 12px; /* Espaçamento interno */
-    border-radius: 4px; /* Bordas arredondadas */
-    font-size: 12px; /* Tamanho de fonte menor */
-    white-space: nowrap; /* Impede quebra de linha */
-    z-index: 100; /* Garante que fique acima de outros elementos */
-    opacity: 0; /* Inicialmente invisível */
-    visibility: hidden; /* Inicialmente invisível */
-    transition: opacity 0.3s; /* Transição suave para opacidade */
-    pointer-events: none; /* Impede que o tooltip interfira com eventos do mouse */
-}
-
-/* Mostra o tooltip ao passar o mouse sobre a aba */
-.tab-button:hover .tab-tooltip {
-    opacity: 1; /* Torna visível */
-    visibility: visible; /* Torna visível */
-}
-
 /* NOVO CÓDIGO PARA DIAS DE ATRASO - Estilo para dias de atraso */
 .day.delay {
     background-color: #ff8a80; /* Vermelho claro */
@@ -303,68 +326,17 @@ footer {
 .day.delay:hover {
     background-color: #ff5252; /* Vermelho mais escuro no hover */
 }
+
 /* NOVA COR PARA A LEGENDA DE ATRASO */
 .delay-color {
     background-color: #ff8a80; /* Vermelho claro - mesma cor dos dias de atraso */
 }
-/* MELHORIAS NO TOOLTIP DOS DIAS */
-.day-tooltip {
-    position: absolute;  /* Posicionamento absoluto em relação ao elemento pai */
-    bottom: 100%; /* Posiciona acima do dia */
-    left: 50%;  /* Centraliza horizontalmente */
-    transform: translateX(-50%);  /* Ajuste fino para centralização perfeita */
-    background-color: #333;  /* Cor de fundo escura */
-    color: white;  /* Cor do texto */
-    padding: 8px 12px;  /* Espaçamento interno */
-    border-radius: 6px;  /* Cantos arredondados */
-    font-size: 12px;  /* Tamanho da fonte menor */
-    white-space: nowrap;  /* Impede quebra de linha */
-    z-index: 1000;  /* Garante que fique acima de outros elementos */
-    opacity: 0;  /* Inicialmente invisível */
-    visibility: hidden;  /* Inicialmente escondido */
-    transition: all 0.3s ease;  /* Transição suave para animação */
-    pointer-events: none;  /* Impede interferência com outros eventos */
-    box-shadow: 0 3px 10px rgba(0,0,0,0.2);  /* Sombra para destaque */
-    font-weight: normal;  /* Peso da fonte normal */
-    text-align: center;  /* Texto centralizado */
-    min-width: 180px;  /* Largura mínima para consistência */
+
+/* Rodapé */
+footer {
+    text-align: center; /* Centraliza texto */
+    padding: 20px; /* Espaçamento interno */
+    margin-top: 20px; /* Margem superior */
+    color: #666; /* Cor cinza */
+    font-size: 14px; /* Tamanho de fonte menor */
 }
-
-/* Seta do tooltip - elemento decorativo */
-.day-tooltip::after {
-    content: '';  /* Conteúdo vazio - elemento puramente visual */
-    position: absolute;  /* Posicionamento absoluto */
-    top: 100%;  /* Posiciona abaixo do tooltip */
-    left: 50%;  /* Centraliza horizontalmente */
-    transform: translateX(-50%);  /* Ajuste de centralização */
-    border-width: 5px;  /* Tamanho da seta */
-    border-style: solid;  /* Estilo da borda */
-    border-color: #333 transparent transparent transparent;  /* Cores: preto em cima, transparente nas laterais */
-}
-
-/* Mostra o tooltip ao passar o mouse */
-.day:hover .day-tooltip {
-    opacity: 1;
-    visibility: visible;
-    bottom: 120%; /* Levanta um pouco mais o tooltip */
-}
-
-/* Tooltip específico para dias de manutenção */
-.day.maintenance:hover .day-tooltip {
-    background-color: #005288; /* Azul da empresa */
-}
-
-.day.maintenance:hover .day-tooltip::after {
-    border-color: #005288 transparent transparent transparent;
-}
-
-/* Tooltip específico para dias de atraso */
-.day.delay:hover .day-tooltip {
-    background-color: #d32f2f; /* Vermelho para atraso */
-}
-
-.day.delay:hover .day-tooltip::after {
-    border-color: #d32f2f transparent transparent transparent;
-} 
-
-/* FIM DO NOVO CÓDIGO CSS */
