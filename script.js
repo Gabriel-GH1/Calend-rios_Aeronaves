@@ -36,7 +36,7 @@ const appConfig = {
             
         },
         "pr-arb": {
-            plannedExit: "2025-10-21",
+            plannedExit: "2025-09-30",
             critical: true,
             
         },
