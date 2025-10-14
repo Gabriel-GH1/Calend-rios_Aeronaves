@@ -129,5 +129,18 @@ const AIRCRAFT_DATA = {
                 descricao: "CVA + Intervalos"
             }
         ]
+    },
+    "pp-nld": {
+        prefix: "PP-NLD",
+        name: "Phenom 300",
+        description: "Manutenção intervalos e CVA",
+        year: 2025,
+        maintenances: [
+            {
+                entrada: "2025-10-24",
+                saida: "2025-12-12",
+                descricao: "CVA + Intervalos"
+            }
+        ]
     }
 };
