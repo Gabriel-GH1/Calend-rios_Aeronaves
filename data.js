@@ -73,7 +73,7 @@ const AIRCRAFT_DATA = {
         maintenances: [
             {
                 entrada: "2025-02-10",
-                saida: "2025-10-17",
+                saida: "2025-10-21",
                 descricao: "Manutenção CVA"
             }
         ]
@@ -117,15 +117,15 @@ const AIRCRAFT_DATA = {
             }
         ]
     },
-    "pr-new": {
-        prefix: "PR-NEW",
-        name: "Embraer 190",
+    "ps-cmc": {
+        prefix: "PS-CMC",
+        name: "EMB-505 - Phenom 300",
         description: "Manutenção intervalos e CVA",
         year: 2025,
         maintenances: [
             {
-                entrada: "2025-10-10",
-                saida: "2025-10-31",
+                entrada: "2025-10-24",
+                saida: "2025-11-14",
                 descricao: "CVA + Intervalos"
             }
         ]

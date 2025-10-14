@@ -36,7 +36,7 @@ const appConfig = {
             
         },
         "pr-arb": {
-            plannedExit: "2025-10-17",
+            plannedExit: "2025-10-21",
             critical: true,
             
         },
@@ -55,8 +55,8 @@ const appConfig = {
             critical: false,
             
         },
-        "pr-new": {
-            plannedExit: "2025-10-31",
+        "ps-cmc": {
+            plannedExit: "2025-11-14",
             critical: false,
             
         }
