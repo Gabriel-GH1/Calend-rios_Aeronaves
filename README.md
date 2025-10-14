@@ -1,4 +1,4 @@
-# ✈ Calendário de Manutenção de Aeronaves
+# ✈️ Calendário de Manutenção de Aeronaves
 
 Bem-vindo ao repositório "Calendário de Aeronaves" — uma aplicação estática simples para visualizar e gerenciar o calendário de manutenção de aeronaves.
 

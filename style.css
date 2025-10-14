@@ -23,6 +23,7 @@
 .tab-button:hover .tab-tooltip {
     display: block;
 }
+
 /* Reset básico para remover margens e paddings padrão e usar border-box */
 * {
     box-sizing: border-box; /* Inclui padding e border na largura/altura */
@@ -276,14 +277,36 @@ h1 {
     border-color: #005288 transparent transparent transparent;
 }
 
-/* Tooltip específico para dias de atraso */
+/* ===== CORREÇÕES PARA DIAS DE ATRASO ===== */
+
+/* Dias de atraso - VERMELHO SEMPRE */
+.day.delay {
+    background-color: #ff8a80 !important; /* Vermelho claro */
+    font-weight: bold; /* Texto em negrito */
+}
+
+/* Hover para dias de atraso - VERMELHO ESCURO */
+.day.delay:hover {
+    background-color: #ff5252 !important; /* Vermelho mais escuro no hover */
+}
+
+/* Tooltip vermelho para dias de atraso */
 .day.delay:hover .day-tooltip {
-    background-color: #d32f2f; /* Vermelho para atraso */
+    background-color: #d32f2f !important; /* Vermelho para atraso */
 }
 
 .day.delay:hover .day-tooltip::after {
-    border-color: #d32f2f transparent transparent transparent;
-} 
+    border-color: #d32f2f transparent transparent transparent !important;
+}
+
+/* Prioridade: atraso > manutenção (quando ambas classes existem) */
+.day.delay.maintenance {
+    background-color: #ff8a80 !important; /* Vermelho prevalece sobre amarelo */
+}
+
+.day.delay.maintenance:hover {
+    background-color: #ff5252 !important; /* Vermelho escuro prevalece */
+}
 
 /* Container da legenda */
 .legend {
@@ -316,18 +339,7 @@ h1 {
     background-color: #ffeb3b; /* Amarelo */
 }
 
-/* NOVO CÓDIGO PARA DIAS DE ATRASO - Estilo para dias de atraso */
-.day.delay {
-    background-color: #ff8a80; /* Vermelho claro */
-    font-weight: bold; /* Texto em negrito */
-}
-
-/* Efeito ao passar o mouse sobre dias de atraso */
-.day.delay:hover {
-    background-color: #ff5252; /* Vermelho mais escuro no hover */
-}
-
-/* NOVA COR PARA A LEGENDA DE ATRASO */
+/* Cor para dias de atraso na legenda */
 .delay-color {
     background-color: #ff8a80; /* Vermelho claro - mesma cor dos dias de atraso */
 }
