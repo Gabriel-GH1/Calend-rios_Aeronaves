@@ -67,8 +67,46 @@ h1 {
     display: flex; /* Layout flexível para alinhar as abas horizontalmente */
     background: #e0e0e0; /* Cor de fundo cinza */
     border-bottom: 1px solid #ccc; /* Borda inferior */
-    flex-wrap: wrap; /* permite quebrar em linhas */
+    flex-wrap: nowrap; /* força única linha horizontal das abas */
 }
+
+/* Wrapper que envolve as tabs e as setas */
+.tabs-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    overflow: hidden; /* Esconde scrollbars do wrapper; o container interno faz o scroll */
+    background: #e0e0e0;
+}
+
+.tabs {
+    flex: 1 1 auto;
+    display: flex;
+    overflow-x: auto; /* rolagem horizontal quando necessário */
+    white-space: nowrap;
+    align-items: center;
+}
+
+/* Estilos para as setas de navegação das abas */
+.tabs-arrow {
+    background: #005288;
+    color: white;
+    border: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.tabs-arrow.right { margin-left: 8px; }
+
+.tabs-arrow:focus { outline: 2px solid #003a5a; }
+
+.tabs-arrow[disabled] { opacity: 0.4; cursor: default; }
 
 /* Estilo para os botões das abas */
 .tab-button {

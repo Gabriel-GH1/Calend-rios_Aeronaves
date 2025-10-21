@@ -19,7 +19,7 @@ const AIRCRAFT_DATA = {
         name: "Embraer Citation CJ2",
         description: "Jato regional",
         year: 2025,
-        plannedExit: "2025-08-29",
+        plannedExit: "2025-08-29", //plannedExit é somente quando ocorrer atraso.
         maintenances: [
             {
                 entrada: "2025-08-08",
@@ -61,7 +61,7 @@ const AIRCRAFT_DATA = {
         name: "EMB-500 - Phenom 100",
         description: "Aeronave comercial",
         year: 2025,
-        plannedExit: "2025-08-14",
+        plannedExit: "2025-08-14", // ← MUDE ESTA DATA para MAIS CEDO da saída pra pintar de vermelho
         maintenances: [
             {
                 entrada: "2025-04-09",
@@ -75,11 +75,11 @@ const AIRCRAFT_DATA = {
         name: "525 - Citation CJ1",
         description: "Jato regional",
         year: 2025,
-        plannedExit: "2025-09-30",
+        plannedExit: "2025-09-30", // ← MUDE ESTA DATA para MAIS CEDO da saída pra pintar de vermelho
         maintenances: [
             {
                 entrada: "2025-02-10",
-                saida: "2025-10-21",
+                saida: "2025-10-21", // Data REAL (vai criar atraso)
                 descricao: "Manutenção CVA"
             }
         ]
@@ -153,5 +153,35 @@ const AIRCRAFT_DATA = {
                 descricao: "CVA + Intervalos"
             }
         ]
-    }
+    },
+    "pp-lja": {
+        prefix: "PP-LJA",
+        name: "Phenom 300",
+        description: "CVA",
+        year: 2025,
+        plannedExit: "2025-12-20",
+        maintenances: [
+            {
+                entrada: "2025-12-05",
+                saida: "2025-12-20",
+                descricao: "CVA"
+            }
+        ]
+    },
+    // Placeholders adicionadas para edição futura
+    "zz-placeholder1": {
+        prefix: "ZZ-PL1",
+        name: "Placeholder 1 (editar)",
+        description: "Preencha nome, datas e manutenções posteriormente",
+        year: 2025,
+        // plannedExit opcional
+        maintenances: []
+    },
+    "zz-placeholder2": {
+        prefix: "ZZ-PL2",
+        name: "Placeholder 2 (editar)",
+        description: "Preencha nome, datas e manutenções posteriormente",
+        year: 2025,
+        maintenances: []
+    },
 };
