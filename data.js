@@ -1,4 +1,5 @@
 // data.js - Dados das aeronaves ATUALIZADO com plannedExit
+//plannedExit é somente quando ocorrer atraso em alguma aeronave
 const AIRCRAFT_DATA = {
     "pp-fcf": {
         prefix: "PP-FCF",
@@ -19,7 +20,7 @@ const AIRCRAFT_DATA = {
         name: "Embraer Citation CJ2",
         description: "Jato regional",
         year: 2025,
-        plannedExit: "2025-08-29", //plannedExit é somente quando ocorrer atraso.
+        plannedExit: "2025-08-29", 
         maintenances: [
             {
                 entrada: "2025-08-08",
@@ -61,7 +62,7 @@ const AIRCRAFT_DATA = {
         name: "EMB-500 - Phenom 100",
         description: "Aeronave comercial",
         year: 2025,
-        plannedExit: "2025-08-14", // ← MUDE ESTA DATA para MAIS CEDO da saída pra pintar de vermelho
+        plannedExit: "2025-08-14", // ← MUDE ESTA DATA para MAIS CEDO da saída pra pintar de vermelho no script.js
         maintenances: [
             {
                 entrada: "2025-04-09",
@@ -75,7 +76,7 @@ const AIRCRAFT_DATA = {
         name: "525 - Citation CJ1",
         description: "Jato regional",
         year: 2025,
-        plannedExit: "2025-09-30", // ← MUDE ESTA DATA para MAIS CEDO da saída pra pintar de vermelho
+        plannedExit: "2025-09-30", // ← MUDE ESTA DATA para MAIS CEDO da saída pra pintar de vermelho NO SCRIPT.JS
         maintenances: [
             {
                 entrada: "2025-02-10",
@@ -169,13 +170,20 @@ const AIRCRAFT_DATA = {
         ]
     },
     // Placeholders adicionadas para edição futura
-    "zz-placeholder1": {
-        prefix: "ZZ-PL1",
-        name: "Placeholder 1 (editar)",
-        description: "Preencha nome, datas e manutenções posteriormente",
+    "pr-cmq": {
+        prefix: "PR-CMQ",
+        name: "EMB-500 - Phenom 100",
+        description: "CVA + 48 MO",
         year: 2025,
         // plannedExit opcional
-        maintenances: []
+        maintenances: [
+            {
+
+                entrada: "2025-10-27",
+                saida: "2025-11-14",
+                descricao: "CVA + 48 MO"
+            }
+        ]
     },
     "zz-placeholder2": {
         prefix: "ZZ-PL2",

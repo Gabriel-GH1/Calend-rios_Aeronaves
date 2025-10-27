@@ -18,7 +18,7 @@ const appConfig = {
             critical: false,           // flag crítica
         },
         "pr-msz": {
-            plannedExit: "2025-08-29", 
+            plannedExit: "2025-08-29", //← MUDE ESTA DATA para MAIS CEDO da saída pra pintar de vermelho
             critical: false,
         },
         "pp-emo": {
