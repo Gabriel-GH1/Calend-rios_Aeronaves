@@ -185,11 +185,18 @@ const AIRCRAFT_DATA = {
             }
         ]
     },
-    "zz-placeholder2": {
-        prefix: "ZZ-PL2",
-        name: "Placeholder 2 (editar)",
-        description: "Preencha nome, datas e manutenções posteriormente",
+    "ps-rvs": {
+        prefix: "PS-RVS",
+        name: "EMB-500 - Phenom 100",
+        description: "CVA + Intervalos",
         year: 2025,
-        maintenances: []
+        maintenances: [
+            {
+                entrada: "2025-11-03",
+                saida: "2025-11-21",
+                descricao: "CVA + intervalos"
+            }
+
+        ]
     },
 };
