@@ -199,4 +199,47 @@ const AIRCRAFT_DATA = {
 
         ]
     },
+     "ps-evo": {
+        prefix: "PS-EVO",
+        name: "EMB-505 - Phenom 300",
+        description: "CVA + Intervalos",
+        year: 2025,
+        maintenances: [
+            {
+                entrada: "2025-12-02",
+                saida: "2025-12-19",
+                descricao: "CVA + intervalos"
+            }
+
+        ]
+    },
+
+    "pr-drj": {
+        prefix: "PR-DRJ",
+        name: "EMB-505 - Phenom 300",
+        description: "CVA + Intervalos",
+        year: 2025,
+        maintenances: [
+            {
+                entrada: "2025-12-01",
+                saida: "2025-12-31",
+                descricao: "CVA + intervalos"
+            }
+
+        ]
+    },
+    "ps-ece.": {
+        prefix: "PS-ECE",
+        name: "EMB-505 - Phenom 300",
+        description: "CVA + Intervalos",
+        year: 2025,
+        maintenances: [
+            {
+                entrada: "2025-12-01",
+                saida: "2025-12-19",
+                descricao: "CVA + intervalos"
+            }
+
+        ]
+    },
 };
